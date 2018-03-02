@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <title>全球贸易建模分析</title>
+    <link rel="stylesheet" href="../css/paging.css" />
+    <link rel="stylesheet" href="../Lib/iconfont/iconfont.css" />
+    <link rel="stylesheet" href="../css/pop.css" />
+    <link rel="stylesheet" href="../css/public.css" />
+    <script src="../Lib/jquery-1.12.4.min.js"></script>
+    <script src="../js/jquery.pager.js"></script>
+    <script type="text/javascript" src="../lib/jquery.actual.min.js"></script>
+    <script src="../js/public.js"></script>
+    <script src="../js/jsAll.js"></script>
+    <!--分页的js引入-->
+    <script src="../js/query.js"></script>
+    <script src="../js/paging.js"></script>
+
+</head>
+<body class="trade-model">
+<div class="header-bg">
+    <div class="header-top-bg">
+        <div class="head-top">
+            <div class="fr">
+                <div>
+                    <span>200指数</span>
+                </div>
+                <div>
+                    <span>管理平台</span>
+                </div>
+                <div>
+                    <span>欢迎登录</span>
+                    <span>admin</span>
+                </div>
+                <div>
+                    <a href="#">退出</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header-ct-bg">
+        <div class="head-ct">
+            <img src="../images/logo.png"/>
+            <h3>苹果大数据专题分析管理平台</h3>
+        </div>
+    </div>
+</div>
+<div class="wrap">
+    <ul class="nav-bar">
+        <li class="nav-item">
+            <div>
+                <i class="img-search"></i>
+                <span>苹果生产</span>
+            </div>
+            <ul class="nav-son">
+                <li onclick="window.location.href='produce_world.html'">全球生产</li>
+                <li onclick="window.location.href='produce_china.html'">全国生产</li>
+                <li onclick="window.location.href='produce_weather.html'">作物气象</li>
+                <li onclick="window.location.href='produce_advance.html'">产区优势</li>
+                <li onclick="window.location.href='produce_model.html'">建模分析</li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <div>
+                <i class="img-setup"></i>
+                <span>市场价格</span>
+            </div>
+            <ul class="nav-son" >
+                <li onclick="window.location.href='price_eachlink.html'">各环节价格</li>
+                <li onclick="window.location.href='price_totalworth.html'">国内生产总值</li>
+                <li onclick="window.location.href='price_conduction.html'">传导机制</li>
+                <li onclick="window.location.href='price_model.html'">建模分析</li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <div>
+                <i class="img-release"></i>
+                <span>成本收益</span>
+            </div>
+            <ul class="nav-son">
+                <li onclick="window.location.href='income_cost.html'">成本管理</li>
+                <li onclick="window.location.href='income_profit.html'">净利润管理</li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <div>
+                <i class="img-release"></i>
+                <span>对外贸易</span>
+            </div>
+            <ul class="nav-son">
+                <li onclick="window.location.href='trade_china.html'">国内贸易</li>
+                <li onclick="window.location.href='trade_world.html'">全球贸易</li>
+                <li onclick="window.location.href='trade_rate.html'">汇率管理</li>
+                <li onclick="window.location.href='trade_population.html'">人口数据</li>
+                <li onclick="window.location.href='trade_model.html'">建模分析</li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <div>
+                <i class="img-release"></i>
+                <span>苹果消费</span>
+            </div>
+            <ul class="nav-son">
+                <li onclick="window.location.href='consume_world.html'">国际消费</li>
+                <li onclick="window.location.href='consume_market.html'">市场流通</li>
+                <li onclick="window.location.href='consume_channel.html'">电商数据</li>
+                <li onclick="window.location.href='consume_blueprint.html'">消费画像</li>
+                <li onclick="window.location.href='consume_model.html'">建模分析</li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <div>
+                <i class="img-release"></i>
+                <span>标题管理</span>
+            </div>
+            <ul class="nav-son">
+                <li onclick="window.location.href='title_manage.html'">标题管理</li>
+            </ul>
+        </li>
+    </ul>
+    <div class="cont">
+        <div class="mainCon">
+            <div class="conTitle">
+                <span class="Ctitle"><i></i>价格分析查询</span>
+                <div class="but butH indexHbut">隐藏</div>
+            </div>
+            <div class="selectWrap">
+                <div class="Index border-none">
+                    <p class="conT"><span class='fei required'>*</span>分析模块：</p>
+                    <div class="conTsub">
+                        <ul class="chankbox">
+                            <li><label class="checklable sunchecked"><input type="radio" name="zhibiao" class="checkbox " checked="checked" value="area"/></label>季节性规律</li>
+                            <li><label class="checklable sunchecked"><input type="radio" name="zhibiao" class="checkbox" value="yield"/></label>影响因素</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="butCon">
+                    <div class="but butSelect">查询</div>
+                    <div class="but butReset">重置</div>
+                </div>
+            </div>
+
+            <div class="selectTab">
+                <div class="conTitle">
+                    <span class="Ctitle"><i></i>查询列表</span>
+
+                </div>
+                <div class="conTable">
+                    <div>
+                        <p class="textDiscibe">查询结果走势图</p>
+                        <div class="echarts-box" id="box" style="height:400px;width:100%;"></div>
+                    </div>
+                    <div>
+                        <div class="table-tit">
+                            <p class="textDiscibe">查询结果列表</p>
+                            <div class="but butOut">导出Excel</div>
+                        </div>
+                        <table class="tabList">
+                            <thead class="indexThead">
+                            <tr>
+                                <th>序号</th>
+                                <th>影响因素</th>
+                                <th>弹性指数</th>
+                                <th>时间(年度)</th>
+                            </tr>
+                            </thead>
+                            <tbody class="indexBody">
+                            <tr>
+                                <td>1</td>
+                                <td>主要目标国苹果产量</td>
+                                <td>107.10</td>
+                                <td>2016</td>
+                            </tr><tr>
+                                <td>2</td>
+                                <td>主要目标国苹果产量</td>
+                                <td>107.10</td>
+                                <td>2016</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="table-footer">
+                            <p class="count">总记录数：<span>120条</span></p>
+                            <div class="page">
+                                <div id="pageTool" style="float: right;margin-top: 10px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="../Lib/echarts-all-3.js"></script>
+<script type="text/javascript" src="../js/echartsSet.js"></script>
+<script type="text/javascript" src="../js/trade_model.js"></script>
+</html>

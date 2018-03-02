@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" xmlns="http://www.w3.org/1999/html">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<title>各环节价格</title>
+		<link rel="stylesheet" href="../css/bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" href="../css/bootstrap-datetimepicker.min.css">
+		<link rel="stylesheet" href="../css/public.css" />
+		<link rel="stylesheet" href="../css/paging.css" />
+		<link rel="stylesheet" href="../css/pop.css" />
+
+		<script src="../lib/jquery-1.12.4.min.js"></script>
+		<script src="../js/jquery.pager.js"></script>
+		<script type="text/javascript" src="../lib/jquery.actual.min.js"></script>
+		<script src="../js/public.js"></script>
+		<script type="text/javascript" src="../lib/bootstrap-datetimepicker.min.js"></script>
+		<script type="text/javascript" src="../lib/bootstrap-datetimepicker.zh-CN.js"></script>
+		<script src="../js/jsAll.js"></script>
+		<!--分页的js引入-->
+		<script src="../js/query.js"></script>
+		<script src="../js/paging.js"></script>
+
+
+	</head>
+	<body class="price-eachlink">
+		<div class="header-bg">
+			<div class="header-top-bg">
+				<div class="head-top">
+					<div class="fr">
+						<div>
+							<span>200指数</span>
+						</div>
+						<div>
+							<span>管理平台</span>
+						</div>
+						<div>
+							<span>欢迎登录</span>
+							<span>admin</span>
+						</div>
+						<div>
+							<a href="#">退出</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="header-ct-bg">
+				<div class="head-ct">
+					<img src="../images/logo.png"/>
+					<h3>苹果大数据专题分析管理平台</h3>
+				</div>
+			</div>
+		</div>
+		<div class="wrap">
+			<ul class="nav-bar">
+				<li class="nav-item">
+					<div>
+						<i class="img-search"></i>
+						<span>苹果生产</span>
+					</div>
+					<ul class="nav-son">
+						<li onclick="window.location.href='produce_world.html'">全球生产</li>
+						<li onclick="window.location.href='produce_china.html'">全国生产</li>
+						<li onclick="window.location.href='produce_weather.html'">作物气象</li>
+						<li onclick="window.location.href='produce_advance.html'">产区优势</li>
+						<li onclick="window.location.href='produce_model.html'">建模分析</li>
+					</ul>
+				</li>
+				<li class="nav-item">
+					<div>
+						<i class="img-setup"></i>
+						<span>市场价格</span>
+					</div>
+					<ul class="nav-son" >
+						<li onclick="window.location.href='price_eachlink.html'">各环节价格</li>
+						<li onclick="window.location.href='price_totalworth.html'">国内生产总值</li>
+						<li onclick="window.location.href='price_conduction.html'">传导机制</li>
+						<li onclick="window.location.href='price_model.html'">建模分析</li>
+					</ul>
+				</li>
+				<li class="nav-item">
+					<div>
+						<i class="img-release"></i>
+						<span>成本收益</span>
+					</div>
+					<ul class="nav-son">
+						<li onclick="window.location.href='income_cost.html'">成本管理</li>
+						<li onclick="window.location.href='income_profit.html'">净利润管理</li>
+					</ul>
+				</li>
+				<li class="nav-item">
+					<div>
+						<i class="img-release"></i>
+						<span>对外贸易</span>
+					</div>
+					<ul class="nav-son">
+						<li onclick="window.location.href='trade_china.html'">国内贸易</li>
+						<li onclick="window.location.href='trade_world.html'">全球贸易</li>
+						<li onclick="window.location.href='trade_rate.html'">汇率管理</li>
+						<li onclick="window.location.href='trade_population.html'">人口数据</li>
+						<li onclick="window.location.href='trade_model.html'">建模分析</li>
+					</ul>
+				</li>
+				<li class="nav-item">
+					<div>
+						<i class="img-release"></i>
+						<span>苹果消费</span>
+					</div>
+					<ul class="nav-son">
+						<li onclick="window.location.href='consume_world.html'">国际消费</li>
+						<li onclick="window.location.href='consume_market.html'">市场流通</li>
+						<li onclick="window.location.href='consume_channel.html'">电商数据</li>
+						<li onclick="window.location.href='consume_blueprint.html'">消费画像</li>
+						<li onclick="window.location.href='consume_model.html'">建模分析</li>
+					</ul>
+				</li>
+				<li class="nav-item">
+					<div>
+						<i class="img-release"></i>
+						<span>标题管理</span>
+					</div>
+					<ul class="nav-son">
+						<li onclick="window.location.href='title_manage.html'">标题管理</li>
+					</ul>
+				</li>
+			</ul>
+			<div class="cont">
+				<div class="mainCon">
+					<div class="conTitle">
+						<span class="Ctitle"><i></i>各环节价格查询</span>
+						<div class="but butH indexHbut">隐藏</div>
+					</div>
+					<div class="selectWrap">
+						<div class="dataSelect">
+							<p class="conT"><span class='fei required'>*</span>查询周期：
+							<ul class="tab-date">
+								<li data-neardate="day" class="active">最近一天</li>
+								<li data-neardate="week">最近一周</li>
+							</ul>
+                                <input size="16" type="text" class="form-control form_date form_date_start"/> 至：<input size="16" type="text" class="form-control form_date form_date_end"/></p>
+
+						</div>
+						<div id="zhibiao" class="Index">
+							<p class="conT"><span class='fei required'>*</span>指标分类：</p>
+							<div class="conTsub">
+								<ul class="chankbox">
+									<li><label class="checklable sunchecked"><input type="radio" name="zhibiao" value="lingshou" data-type="lingshou" class="checkbox " checked="checked"/></label>零售价</li>
+									<li><label class="checklable sunchecked"><input type="radio" name="zhibiao" data-type="pifa" class="checkbox"/></label>批发价</li>
+									<li><label class="checklable sunchecked"><input type="radio" name="zhibiao" data-type="shougou" class="checkbox"/></label>收购价</li>
+								</ul>
+							</div>
+						</div>
+						<div id="provience" class="Index" data-toggle="ls">
+							<p class="conT"><span class='fei required'>*</span>省份选择：</p>
+							<ul class="chankbox">
+								<li><label class="checklable sunchecked"><input type="radio" name="lsProvience" value="deguo" class="checkbox" checked = "checked"/></label>德国</li>
+								<li><label class="checklable sunchecked"><input type="radio" name="lsProvience" class="checkbox"/></label>英国</li>
+								<li><label class="checklable sunchecked"><input type="radio" name="lsProvience" class="checkbox"/></label>美国</li>
+								<li><label class="checklable sunchecked"><input type="radio" name="lsProvience" class="checkbox"/></label>西班牙</li>
+								<li><label class="checklable sunchecked"><input type="radio" name="lsProvience" class="checkbox"/></label>法国</li>
+								<li><label class="checklable sunchecked"><input type="radio" name="lsProvience" class="checkbox"/></label>加拿大</li>
+								<li><label class="checklable sunchecked"><input type="radio" name="lsProvience" class="checkbox"/></label>美国</li>
+								<li><label class="checklable sunchecked"><input type="radio" name="lsProvience" class="checkbox"/></label>美国</li>
+								<li><label class="checklable sunchecked"><input type="radio" name="lsProvience" class="checkbox"/></label>美国</li>
+								<li><label class="checklable sunchecked"><input type="radio" name="lsProvience" class="checkbox"/></label>美国</li>
+								<li><label class="checklable sunchecked"><input type="radio" name="lsProvience" class="checkbox"/></label>美国</li>
+								<li><label class="checklable sunchecked"><input type="radio" name="lsProvience" class="checkbox"/></label>美国</li>
+								<li><label class="checklable sunchecked"><input type="radio" name="lsProvience" class="checkbox"/></label>美国</li>
+								<li><label class="checklable sunchecked"><input type="radio" name="lsProvience" class="checkbox"/></label>美国</li>
+								<li><label class="checklable sunchecked"><input type="radio" name="lsProvience" class="checkbox"/></label>美国</li>
+			 				</ul>
+							<p class='showBut more'>更多</p>	
+						</div>
+						<div id="city" class="Index border-none" data-toggle="ls">
+							<p class="conT"><span class='fei required'>*</span>地市选择：</p>
+							<ul class="chankbox" >
+								<li><label class="checklable unchecked"><input type="checkbox" name="chengshi" value="deguo" class="checkbox"/></label>德国</li>
+								<li><label class="checklable unchecked"><input type="checkbox" class="checkbox"/></label>英国</li>
+								<li><label class="checklable unchecked"><input type="checkbox" class="checkbox"/></label>美国</li>
+								<li><label class="checklable unchecked"><input type="checkbox" class="checkbox"/></label>西班牙</li>
+								<li><label class="checklable unchecked"><input type="checkbox" class="checkbox"/></label>法国</li>
+								<li><label class="checklable unchecked"><input type="checkbox" class="checkbox"/></label>加拿大</li>
+								<li><label class="checklable unchecked"><input type="checkbox" class="checkbox"/></label>美国</li>
+								<li><label class="checklable unchecked"><input type="checkbox" class="checkbox"/></label>美国</li>
+								<li><label class="checklable unchecked"><input type="checkbox" class="checkbox"/></label>美国</li>
+								<li><label class="checklable unchecked"><input type="checkbox" class="checkbox"/></label>美国</li>
+								<li><label class="checklable unchecked"><input type="checkbox" class="checkbox"/></label>美国</li>
+								<li><label class="checklable unchecked"><input type="checkbox" class="checkbox"/></label>美国</li>
+								<li><label class="checklable unchecked"><input type="checkbox" class="checkbox"/></label>美国</li>
+								<li><label class="checklable unchecked"><input type="checkbox" class="checkbox"/></label>美国</li>
+								<li><label class="checklable unchecked"><input type="checkbox" class="checkbox"/></label>美国</li>
+			 				</ul>
+							<p class='showBut more'>更多</p>
+						</div>
+
+
+						<div class="Index" data-toggle="pf" style="display: none">
+							<p class="conT">省份选择：</p>
+							<ul class="chankbox">
+								<li><label class="checklable sunchecked"><input type="radio" name="pfProvience" checked = "checked" class="checkbox"/></label>上海</li>
+								<li><label class="checklable sunchecked"><input type="radio" name="pfProvience" class="checkbox"/></label>英国</li>
+								<li><label class="checklable sunchecked"><input type="radio" name="pfProvience" class="checkbox"/></label>美国</li>
+								<li><label class="checklable sunchecked"><input type="radio" name="pfProvience" class="checkbox"/></label>西班牙</li>
+								<li><label class="checklable sunchecked"><input type="radio" name="pfProvience" class="checkbox"/></label>法国</li>
+								<li><label class="checklable sunchecked"><input type="radio" name="pfProvience" class="checkbox"/></label>加拿大</li>
+								<li><label class="checklable sunchecked"><input type="radio" name="pfProvience" class="checkbox"/></label>美国</li>
+								<li><label class="checklable sunchecked"><input type="radio" name="pfProvience" class="checkbox"/></label>美国</li>
+								<li><label class="checklable sunchecked"><input type="radio" name="pfProvience" class="checkbox"/></label>美国</li>
+								<li><label class="checklable sunchecked"><input type="radio" name="pfProvience" class="checkbox"/></label>美国</li>
+								<li><label class="checklable sunchecked"><input type="radio" name="pfProvience" class="checkbox"/></label>美国</li>
+								<li><label class="checklable sunchecked"><input type="radio" name="pfProvience" class="checkbox"/></label>美国</li>
+								<li><label class="checklable sunchecked"><input type="radio" name="pfProvience" class="checkbox"/></label>美国</li>
+								<li><label class="checklable sunchecked"><input type="radio" name="pfProvience" class="checkbox"/></label>美国</li>
+								<li><label class="checklable sunchecked"><input type="radio" name="pfProvience" class="checkbox"/></label>美国</li>
+							</ul>
+							<p class='showBut more'>更多</p>
+						</div>
+						<div class="Index" data-toggle="pf" style="display: none">
+							<p class="conT">地市选择：</p>
+							<ul class="chankbox" >
+								<li><label class="checklable sunchecked"><input type="radio" name="pfCity" class="checkbox"class="checkbox"/></label>烟台</li>
+								<li><label class="checklable sunchecked"><input type="radio" name="pfCity" class="checkbox"/></label>银川</li>
+								<li><label class="checklable sunchecked"><input type="radio" name="pfCity" class="checkbox"/></label>渭南</li>
+								<li><label class="checklable sunchecked"><input type="radio" name="pfCity" class="checkbox"/></label>延安</li>
+								<li><label class="checklable sunchecked"><input type="radio" name="pfCity" class="checkbox"/></label>宝鸡</li>
+								<li><label class="checklable sunchecked"><input type="radio" name="pfCity" class="checkbox"/></label>咸阳</li>
+								<li><label class="checklable sunchecked"><input type="radio" name="pfCity" class="checkbox"/></label>青岛</li>
+							</ul>
+							<p class='showBut more'>更多</p>
+						</div>
+						<div class="Index border-none" data-toggle="pf" style="display: none">
+							<p class="conT">批发市场：</p>
+							<ul class="chankbox" >
+								<li><label class="checklable unchecked"><input type="checkbox" class="checkbox"/></label>凯盛物流园</li>
+								<li><label class="checklable unchecked"><input type="checkbox" class="checkbox"/></label>青岛城阳</li>
+								<li><label class="checklable unchecked"><input type="checkbox" class="checkbox"/></label>青岛抚顺路</li>
+								<li><label class="checklable unchecked"><input type="checkbox" class="checkbox"/></label>青岛沧口</li>
+							</ul>
+							<p class='showBut more'>更多</p>
+						</div>
+
+
+						<div class="Index border-none" data-toggle="sg" style="display: none">
+							<p class="conT">省份选择：</p>
+							<ul class="chankbox">
+								<li><label class="checklable unchecked"><input type="checkbox" name="sgProvience" checked = "checked" class="checkbox"/></label>全国</li>
+								<li><label class="checklable unchecked"><input type="checkbox" name="sgProvience" class="checkbox"/></label>山东</li>
+								<li><label class="checklable unchecked"><input type="checkbox" name="sgProvience" class="checkbox"/></label>北京</li>
+								<li><label class="checklable unchecked"><input type="checkbox" name="sgProvience" class="checkbox"/></label>河北</li>
+								<li><label class="checklable unchecked"><input type="checkbox" name="sgProvience" class="checkbox"/></label>天津</li>
+								<li><label class="checklable unchecked"><input type="checkbox" name="sgProvience" class="checkbox"/></label>加拿大</li>
+								<li><label class="checklable unchecked"><input type="checkbox" name="sgProvience" class="checkbox"/></label>美国</li>
+								<li><label class="checklable unchecked"><input type="checkbox" name="sgProvience" class="checkbox"/></label>美国</li>
+								<li><label class="checklable unchecked"><input type="checkbox" name="sgProvience" class="checkbox"/></label>美国</li>
+								<li><label class="checklable unchecked"><input type="checkbox" name="sgProvience" class="checkbox"/></label>美国</li>
+								<li><label class="checklable unchecked"><input type="checkbox" name="sgProvience" class="checkbox"/></label>美国</li>
+								<li><label class="checklable unchecked"><input type="checkbox" name="sgProvience" class="checkbox"/></label>美国</li>
+								<li><label class="checklable unchecked"><input type="checkbox" name="sgProvience" class="checkbox"/></label>美国</li>
+								<li><label class="checklable unchecked"><input type="checkbox" name="sgProvience" class="checkbox"/></label>美国</li>
+								<li><label class="checklable unchecked"><input type="checkbox" name="sgProvience" class="checkbox"/></label>美国</li>
+								<li><label class="checklable unchecked"><input type="checkbox" name="sgProvience" class="checkbox"/></label>美国</li>
+								<li><label class="checklable unchecked"><input type="checkbox" name="sgProvience" class="checkbox"/></label>美国</li>
+							</ul>
+							<p class='showBut more'>更多</p>
+						</div>
+
+
+						<div class="butCon">
+							<div class="but butSelect">查询</div>
+							<div class="but butReset">重置</div>
+						</div>
+					</div>
+
+					<div class="selectTab">
+						<div class="conTitle">
+							<span class="Ctitle"><i></i>查询列表</span>
+
+						</div>
+						<div class="conTable">
+							<div>
+								<p class="textDiscibe">查询结果走势图</p>
+								<div class="echarts-box" id="box"></div>
+							</div>
+							<div>
+								<div class="table-tit">
+									<p class="textDiscibe">查询结果列表（2017/07/21--2017/08/18）</p>
+									<div class="but butOut">导出excel</div>
+								</div>
+								<table class="tabList">
+									<thead class="indexThead">
+										 <tr>
+											<th>序号</th>
+											<th>指标</th>
+											<th>省份</th>
+											<th>地／市</th>
+											<th>零售价格（元/公斤）</th>
+											<th>时间</th>
+										</tr>
+									</thead>
+									<tbody class="indexBody">
+										 <tr>
+											<td>1</td>
+											<td>零售价格</td>
+											<td>山东</td>
+											<td>青岛</td>
+											<td>2.2</td>
+											<td>2017-07-21</td>
+										</tr>
+										 <tr>
+											<td>2</td>
+											<td>零售价格</td>
+											<td>山东</td>
+											<td>青岛</td>
+											<td>2.2</td>
+											<td>2017-07-21</td>
+										</tr>
+										 <tr>
+											<td>3</td>
+											<td>零售价格</td>
+											<td>山东</td>
+											<td>青岛</td>
+											<td>2.2</td>
+											<td>2017-07-21</td>
+										</tr>
+										 <tr>
+											<td>4</td>
+											<td>零售价格</td>
+											<td>山东</td>
+											<td>青岛</td>
+											<td>2.2</td>
+											<td>2017-07-21</td>
+										</tr>
+										 <tr>
+											<td>5</td>
+											<td>零售价格</td>
+											<td>山东</td>
+											<td>青岛</td>
+											<td>2.2</td>
+											<td>2017-07-21</td>
+										</tr>
+										 <tr>
+											<td>6</td>
+											<td>零售价格</td>
+											<td>山东</td>
+											<td>青岛</td>
+											<td>2.2</td>
+											<td>2017-07-21</td>
+										</tr>
+									</tbody>
+								</table>
+								<div class="table-footer">
+									<p class="count">总记录数：<span>120条</span></p>
+									<div class="page">
+										<div id="pageTool"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../lib/echarts-all-3.js"></script>
+	<script type="text/javascript" src="../js/echartsSet.js"></script>
+	<script type="text/javascript" src="../js/price_eachlink.js"></script>
+</html>

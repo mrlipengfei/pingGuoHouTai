@@ -1,0 +1,55 @@
+<div class="header">
+    <!--     <div class="head-top">
+            <div class="fr">
+                <div>
+                    <span onclick='goIndex()'>200指数</span>
+                </div>
+                <div>
+                    <span><a href="/dataCenter/serviceIndex">管理平台</a></span>
+                </div>
+                <div>
+                    <span>欢迎登录</span>
+                    <span>admin</span>
+                </div>
+                <div>
+                    <a href="/logout">退出</a>
+                </div>
+            </div>
+        </div> -->
+        	<div class="topBar">
+			<div class="inner cf">
+				<div class="nav" id="head-active">
+					<ul>  
+						<li><div sec:authorize="hasAuthority ('/dataCenter/visualization')"><a href="/visualization/dist/index" target="_blank" id="monitorSys">数据可视化</a></div></li>
+               <!-- 	<li><div sec:authorize="hasAuthority ('/dataCenter')"><a href="/dataCenter/resourcePreManage">数据清洗管理</a></div></li> -->						
+                    <li><div sec:authorize="hasAuthority ('/dataCenter')"><a id="qingxiwelcome" href="">数据清洗管理</a></div></li>
+			            <li><div sec:authorize="hasAuthority ('/200Index/index')"><a href="/200Index/index.html"  target="_blank" id="goIndex">200指数</a></div></li>
+                        <li><div sec:authorize="hasAuthority ('/indexproduct/weight/zhishuwelcome')"><a id="zhishuwelcome" href="">200指数管理</a></div></li>
+                        <li><div sec:authorize="hasAuthority ('mo_sysManager')"><a href="" id="dataManage">系统管理</a></div></li>
+<!--               /dataCenter/serviceIndex  欢迎页          <li><div ><a href="/dataCenter/serviceManage" id="monitorSys">数据可视化</a></div></li> -->
+<!--                         <li><div ><a href="/sysUser/getAllSysUser" id="dataManage">系统管理</a></div></li> -->
+<!--                         <li><div ><a href="/dataCenter/resourcePreManage">数据清洗管理</a></div></li> -->
+					</ul>
+				</div>
+				<div class="userArea">
+					<span>欢迎登录，</span>
+					<span sec:authentication="name"></span>
+					<a href="/logout">退出</a>
+				</div>	
+			</div>
+		</div>
+    
+    <div class="header-ct-bg">
+        <div class="head-ct">
+            <img src="../images/logo.png"/>
+            <h3>苹果大数据专题分析管理平台</h3>
+            <div class="head-user fr">
+                <div>
+                    <img src="../images/login.png"/>
+                    <span>admin</span>
+                </div>
+            </div>
+        </div>
+    </div> 
+    </div>
+    </div>
